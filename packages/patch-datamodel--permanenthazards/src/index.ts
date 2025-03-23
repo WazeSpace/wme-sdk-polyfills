@@ -8,6 +8,7 @@ import { getPermanentHazard } from './lib/get-permanent-hazard.js';
 import { pushUpdateObjectAction } from './lib/update-object-action.js';
 import { omitUndefined } from './lib/omit-undefined.js';
 import { WmeSDK } from 'wme-sdk-typings';
+import { GetSchoolZoneByIdArgs } from './lib/args/get-school-zone-by-id-args.js';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 let AddPermanentHazard: any, PermanentHazard: any;
@@ -74,4 +75,15 @@ export default [
       }));
     };
   }, { isFactory: true }),
+
+  new DefinePropertyRule('DataModel.PermanentHazards.getSchoolZoneById', () => {
+    return (args: GetSchoolZoneByIdArgs) => {
+      const permanentHazard = getPermanentHazard(args.schoolZoneId);
+      if (!permanentHazard || permanentHazard.getAttribute('type') !== 9) {
+        return null;
+      }
+  
+      return permanentHazard;
+    };
+  }, { isFactory: true })
 ]
