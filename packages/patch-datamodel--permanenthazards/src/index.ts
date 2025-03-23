@@ -40,7 +40,7 @@ export default [
     if (!PermanentHazard || !AddPermanentHazard)
       throw new Error('PermanentHazard or AddPermanentHazard are not initialized. Make sure to await the enhancedSDK function before using it.');
 
-    return createPermanentHazard(
+    const permanentHazard = createPermanentHazard(
       PermanentHazard,
       AddPermanentHazard,
       {
@@ -51,5 +51,6 @@ export default [
         excludedRoadTypes: args.excludedRoadTypes,
       },
     );
+    return permanentHazard.getID();
   }),
 ]
