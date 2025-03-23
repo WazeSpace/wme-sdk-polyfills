@@ -1,1 +1,1 @@
-export * from './lib/sdk-patcher.js';
+export * from './sdk-patcher.js';
