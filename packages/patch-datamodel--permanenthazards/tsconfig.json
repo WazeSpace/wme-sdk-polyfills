@@ -4,16 +4,13 @@
   "include": [],
   "references": [
     {
-      "path": "../fetch-interceptor"
+      "path": "../wme-utils"
     },
     {
-      "path": "../react-utils"
+      "path": "../sdk-patcher"
     },
     {
       "path": "../utils"
-    },
-    {
-      "path": "../method-interceptor"
     },
     {
       "path": "./tsconfig.lib.json"

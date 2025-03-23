@@ -4,6 +4,9 @@
   "include": [],
   "references": [
     {
+      "path": "../patch-datamodel--permanenthazards"
+    },
+    {
       "path": "../patch-datamodel--mapcomments"
     },
     {
