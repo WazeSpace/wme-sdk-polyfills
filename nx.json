@@ -51,7 +51,15 @@
   ],
   "targetDefaults": {
     "test": {
-      "dependsOn": ["^build", "^build", "^build", "^build", "^build"]
+      "dependsOn": [
+        "^build",
+        "^build",
+        "^build",
+        "^build",
+        "^build",
+        "^build",
+        "^build"
+      ]
     }
   }
 }

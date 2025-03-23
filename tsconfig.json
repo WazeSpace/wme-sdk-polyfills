@@ -17,6 +17,9 @@
     },
     {
       "path": "./packages/sdk-patcher"
+    },
+    {
+      "path": "./packages/patch-editing--transactions"
     }
   ]
 }
