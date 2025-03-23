@@ -16,6 +16,9 @@
     },
     {
       "path": "../utils/tsconfig.lib.json"
+    },
+    {
+      "path": "../method-interceptor/tsconfig.lib.json"
     }
   ],
   "exclude": [
