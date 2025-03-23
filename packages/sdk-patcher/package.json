@@ -13,9 +13,5 @@
       "import": "./dist/index.js",
       "default": "./dist/index.js"
     }
-  },
-  "dependencies": {},
-  "devDependencies": {
-    "wme-sdk-typings": "https://web-assets.waze.com/wme_sdk_docs/production/latest/wme-sdk-typings.tgz"
   }
 }
