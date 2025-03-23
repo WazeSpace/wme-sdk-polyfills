@@ -5,10 +5,12 @@ import { SdkPatcherRule } from './sdk-patcher-rule.js';
 
 export interface DefinePropertyRuleOptions {
   onlyIfNotExists: boolean;
+  isFactory: boolean;
 }
 
 const defaultOptions: DefinePropertyRuleOptions = {
   onlyIfNotExists: true,
+  isFactory: false,
 };
 
 export class DefinePropertyRule implements SdkPatcherRule {
@@ -56,7 +58,14 @@ export class DefinePropertyRule implements SdkPatcherRule {
     const swapper = this._createSwapper(instance);
     if (swapper.value && this._options.onlyIfNotExists) return;
 
-    swapper.swap(this._targetValue);
+    if (this._options.isFactory && typeof this._targetValue === 'function') {
+      const value = this._targetValue({
+        nativeSdkInstance: instance,
+      });
+      swapper.swap(value);
+    } else {
+      swapper.swap(this._targetValue);
+    }
     this._installedInstances.set(instance, swapper);
   }
 
