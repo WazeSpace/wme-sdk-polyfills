@@ -3,6 +3,11 @@ import { captureAsyncActions, drawFeature } from '@wme-enhanced-sdk/wme-utils';
 import { polygon } from '@turf/helpers';
 import { AddSchoolZoneArgs } from './lib/args/add-school-zone-args.js';
 import { createPermanentHazard } from './lib/create-permanent-hazard.js';
+import { UpdateSchoolZoneArgs } from './lib/args/update-school-zone-args.js';
+import { getPermanentHazard } from './lib/get-permanent-hazard.js';
+import { pushUpdateObjectAction } from './lib/update-object-action.js';
+import { omitUndefined } from './lib/omit-undefined.js';
+import { WmeSDK } from 'wme-sdk-typings';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 let AddPermanentHazard: any, PermanentHazard: any;
@@ -53,4 +58,20 @@ export default [
     );
     return permanentHazard.getID();
   }),
+
+  new DefinePropertyRule('DataModel.PermanentHazards.updateSchoolZone', ({ sdkInstance }: { sdkInstance: WmeSDK }) => {
+    return (args: UpdateSchoolZoneArgs) => {
+      const permanentHazard = getPermanentHazard(args.schoolZoneId);
+      if (!permanentHazard || permanentHazard.getAttribute('type') !== 9) {
+        throw new sdkInstance.Errors.DataModelNotFoundError('permanentHazard.SchoolZone', args.schoolZoneId);
+      }
+  
+      pushUpdateObjectAction(permanentHazard, omitUndefined({
+        geoJSONGeometry: args.geometry,
+        name: args.name,
+        speedLimit: args.speedLimit,
+        excludedRoadTypes: args.excludedRoadTypes,
+      }));
+    };
+  }, { isFactory: true }),
 ]
