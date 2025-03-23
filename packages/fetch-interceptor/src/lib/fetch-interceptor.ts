@@ -32,6 +32,7 @@ export class FetchInterceptor {
   }
 
   addInterceptionFilter(filter: InterceptionFilter) {
+    this.enable();
     this._interceptionFilters.add(filter);
   }
 
