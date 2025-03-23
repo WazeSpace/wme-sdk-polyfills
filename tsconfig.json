@@ -26,6 +26,9 @@
     },
     {
       "path": "./packages/wme-utils"
+    },
+    {
+      "path": "./packages/react-utils"
     }
   ]
 }
