@@ -1,7 +1,7 @@
 import { Point, Polygon } from 'geojson';
 
 export interface AddMapCommentArgs {
-  geoJSONGeometry: Point | Polygon;
+  geometry: Point | Polygon;
   subject?: string;
   body?: string;
   lockRank?: number;

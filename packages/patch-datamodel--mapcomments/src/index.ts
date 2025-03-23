@@ -26,7 +26,7 @@ export default [
     assertMapCommentResolved();
 
     const mapComment = new MapComment({
-      geoJSONGeometry: args.geoJSONGeometry,
+      geoJSONGeometry: args.geometry,
       subject: args.subject,
       body: args.body,
       lockRank: args.lockRank,
