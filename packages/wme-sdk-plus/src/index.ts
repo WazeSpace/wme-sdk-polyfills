@@ -15,6 +15,9 @@ export default async function initWmeSdkPlus(sdk: WmeSDK, options: Options = {})
     sdk = cloneSdk(sdk);
   }
 
+  if (!sdk.State.isInitialized())
+    await sdk.Events.once({ eventName: "wme-initialized" });
+
   if (options.hooks) {
     for (const hook of options.hooks) {
       await hooksManager.installHook(hook, sdk);
