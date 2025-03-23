@@ -5,6 +5,18 @@
   "references": [
     {
       "path": "./packages/wme-sdk-plus"
+    },
+    {
+      "path": "./packages/utils"
+    },
+    {
+      "path": "./packages/method-interceptor"
+    },
+    {
+      "path": "./packages/fetch-interceptor"
+    },
+    {
+      "path": "./packages/sdk-patcher"
     }
   ]
 }

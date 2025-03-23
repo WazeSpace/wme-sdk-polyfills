@@ -84,6 +84,14 @@ importers:
         specifier: ^3.0.0
         version: 3.0.9(@types/node@18.16.9)(@vitest/ui@3.0.9)(jiti@2.4.2)(jsdom@22.1.0)
 
+  packages/fetch-interceptor: {}
+
+  packages/method-interceptor: {}
+
+  packages/sdk-patcher: {}
+
+  packages/utils: {}
+
   packages/wme-sdk-plus: {}
 
 packages:
