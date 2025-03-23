@@ -15,7 +15,7 @@
       "path": "../utils/tsconfig.lib.json"
     },
     {
-      "path": "../fetch-interceptor/tsconfig.lib.json"
+      "path": "../wme-utils/tsconfig.lib.json"
     },
     {
       "path": "../sdk-patcher/tsconfig.lib.json"

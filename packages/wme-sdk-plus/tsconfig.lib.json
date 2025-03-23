@@ -10,7 +10,17 @@
     "types": ["node", "vite/client"]
   },
   "include": ["src/**/*.ts"],
-  "references": [],
+  "references": [
+    {
+      "path": "../patch-datamodel--mapcomments/tsconfig.lib.json"
+    },
+    {
+      "path": "../patch-editing--transactions/tsconfig.lib.json"
+    },
+    {
+      "path": "../sdk-patcher/tsconfig.lib.json"
+    }
+  ],
   "exclude": [
     "vite.config.ts",
     "vite.config.mts",

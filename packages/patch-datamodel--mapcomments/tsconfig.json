@@ -7,7 +7,7 @@
       "path": "../utils"
     },
     {
-      "path": "../fetch-interceptor"
+      "path": "../wme-utils"
     },
     {
       "path": "../sdk-patcher"

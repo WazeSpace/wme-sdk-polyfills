@@ -4,6 +4,15 @@
   "include": [],
   "references": [
     {
+      "path": "../patch-datamodel--mapcomments"
+    },
+    {
+      "path": "../patch-editing--transactions"
+    },
+    {
+      "path": "../sdk-patcher"
+    },
+    {
       "path": "./tsconfig.lib.json"
     },
     {
