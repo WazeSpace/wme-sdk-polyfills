@@ -20,6 +20,9 @@
     },
     {
       "path": "./packages/patch-editing--transactions"
+    },
+    {
+      "path": "./packages/wme-utils"
     }
   ]
 }
