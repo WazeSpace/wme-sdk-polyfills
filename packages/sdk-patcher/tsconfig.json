@@ -4,6 +4,9 @@
   "include": [],
   "references": [
     {
+      "path": "../method-interceptor"
+    },
+    {
       "path": "./tsconfig.lib.json"
     },
     {
