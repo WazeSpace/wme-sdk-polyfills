@@ -33,5 +33,6 @@ export default [
       endDate: args.endDate ? formatEndDate(args.endDate) : null,
     });
     pushCreateObjectAction(mapComment);
+    return mapComment;
   }),
 ];
