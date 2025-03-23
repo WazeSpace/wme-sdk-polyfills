@@ -14,5 +14,8 @@
       "default": "./dist/index.js"
     }
   },
-  "dependencies": {}
+  "dependencies": {
+    "@wme-enhanced-sdk/method-interceptor": "workspace:^",
+    "@wme-enhanced-sdk/utils": "workspace:^"
+  }
 }
