@@ -22,6 +22,9 @@
       "path": "./packages/patch-editing--transactions"
     },
     {
+      "path": "./packages/patch-datamodel--mapcomments"
+    },
+    {
       "path": "./packages/wme-utils"
     }
   ]
