@@ -52,7 +52,7 @@ export class DefinePropertyRule implements SdkPatcherRule {
    * Installs the hook on the given instance.
    * @param instance The instance to install the hook on.
    */
-  install({ sdk: instance }: SdkPatcherRuleOperationArgs) {
+  install({ sdk: instance, ...restArgs }: SdkPatcherRuleOperationArgs) {
     if (this._installedInstances.has(instance)) return;
 
     const swapper = this._createSwapper(instance);
@@ -60,7 +60,8 @@ export class DefinePropertyRule implements SdkPatcherRule {
 
     if (this._options.isFactory && typeof this._targetValue === 'function') {
       const value = this._targetValue({
-        nativeSdkInstance: instance,
+        sdk: instance,
+        ...restArgs,
       });
       swapper.swap(value);
     } else {
