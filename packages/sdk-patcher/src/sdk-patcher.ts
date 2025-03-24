@@ -1,5 +1,6 @@
 import { WmeSDK } from 'wme-sdk-typings';
 import { SdkPatcherRule } from './rules/index.js';
+import { ARTIFACTS } from './consts.js';
 
 export class SdkPatcher {
   private _recognizableHooks = new Map<string, SdkPatcherRule[]>();
@@ -43,7 +44,16 @@ export class SdkPatcher {
       await this.installHook(dep, sdk);
     }
 
-    await Promise.all(hook.map((hook) => hook.install(sdk)));
+    const artifacts = Reflect.getMetadata(ARTIFACTS, sdk) || {};
+    if (!Reflect.hasMetadata(ARTIFACTS, sdk)) {
+      Reflect.defineMetadata(ARTIFACTS, artifacts, sdk);
+    }
+
+    const newArtifacts = (await Promise.all(hook.map((hook) => hook.install({ 
+      sdk,
+      artifacts,
+    })))).filter((artifacts) => artifacts && typeof artifacts === 'object');
+    Object.assign(artifacts, ...newArtifacts);
     this.markHookAsInstalled(sdk, name);
   }
 

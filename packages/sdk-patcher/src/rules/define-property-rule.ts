@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { WmeSDK } from 'wme-sdk-typings';
 import { PropertySwapper } from '@wme-enhanced-sdk/method-interceptor';
-import { SdkPatcherRule } from './sdk-patcher-rule.js';
+import { SdkPatcherRule, SdkPatcherRuleOperationArgs } from './sdk-patcher-rule.js';
 
 export interface DefinePropertyRuleOptions {
   onlyIfNotExists: boolean;
@@ -52,7 +52,7 @@ export class DefinePropertyRule implements SdkPatcherRule {
    * Installs the hook on the given instance.
    * @param instance The instance to install the hook on.
    */
-  install(instance: WmeSDK) {
+  install({ sdk: instance }: SdkPatcherRuleOperationArgs) {
     if (this._installedInstances.has(instance)) return;
 
     const swapper = this._createSwapper(instance);
@@ -73,7 +73,7 @@ export class DefinePropertyRule implements SdkPatcherRule {
    * Uninstalls the hook from the given instance.
    * @param instance The instance to uninstall the hook from.
    */
-  uninstall(instance: WmeSDK) {
+  uninstall({ sdk: instance }: SdkPatcherRuleOperationArgs) {
     const swapper = this._installedInstances.get(instance);
     if (swapper) {
       swapper.restore();

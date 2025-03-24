@@ -1,6 +1,14 @@
 import { WmeSDK } from 'wme-sdk-typings';
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+type Artifacts = Record<string, any>;
+
+export interface SdkPatcherRuleOperationArgs {
+  sdk: WmeSDK;
+  artifacts: Artifacts;
+}
+
 export interface SdkPatcherRule {
-  install(sdk: WmeSDK): void | Promise<void>;
-  uninstall?(sdk: WmeSDK): void | Promise<void>;
+  install(args: SdkPatcherRuleOperationArgs): void | Artifacts | Promise<void | Artifacts>;
+  uninstall?(args: SdkPatcherRuleOperationArgs): void | Artifacts | Promise<void | Artifacts>;
 }
