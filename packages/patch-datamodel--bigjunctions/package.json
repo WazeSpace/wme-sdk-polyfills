@@ -1,5 +1,5 @@
 {
-  "name": "@wme-enhanced-sdk/wme-sdk-plus",
+  "name": "@wme-enhanced-sdk/patch-datamodel--bigjunctions",
   "version": "0.0.1",
   "private": true,
   "type": "module",
@@ -15,6 +15,9 @@
     }
   },
   "dependencies": {
-    "@wme-enhanced-sdk/patch-datamodel--bigjunctions": "^0.0.1"
+    "@turf/helpers": "^7.2.0",
+    "@wme-enhanced-sdk/sdk-patcher": "^0.0.1",
+    "@wme-enhanced-sdk/wme-utils": "^0.0.1",
+    "geojson": "^0.5.0"
   }
 }

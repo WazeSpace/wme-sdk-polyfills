@@ -32,6 +32,9 @@
     },
     {
       "path": "./packages/patch-datamodel--permanenthazards"
+    },
+    {
+      "path": "./packages/patch-datamodel--bigjunctions"
     }
   ]
 }
