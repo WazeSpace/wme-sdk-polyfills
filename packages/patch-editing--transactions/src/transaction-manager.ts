@@ -27,6 +27,7 @@ export class TransactionManager {
     const transaction = this._activeTransaction;
     this._activeTransaction = null;
     this._actionManagerAddInterceptor.flushLoggedRequests();
+    this._actionManagerAddInterceptor.disable();
     return transaction;
   }
 
