@@ -31,7 +31,7 @@ class ExecutionResultStore<Fn extends (...args: any[]) => any> {
    * @throws An error when there is no result stored
    */
   getResult(): ReturnType<Fn> {
-    if (this.hasResult)
+    if (!this.hasResult)
       throw new Error('No result is stored');
 
     // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
