@@ -20,6 +20,7 @@ export class TransactionManager {
 
   private openTransaction() {
     this._activeTransaction = new Transaction();
+    this._actionManagerAddInterceptor.enable();
   }
 
   private closeTransaction() {
